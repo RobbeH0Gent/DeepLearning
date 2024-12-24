@@ -30,12 +30,14 @@ met:
 ### Normal equation
 Optimale waarden voor b en w:
 ![image](https://github.com/user-attachments/assets/4baddb81-c1c4-4987-8b09-d45c8ac32ad3)
+
 !! werkt alleen voor lineaire regressie !!
 
 
 ## Logistische regressie (binaire classificatie)
 
 ![image](https://github.com/user-attachments/assets/06d0ad28-594c-4fad-8463-9b98675fcad9)
+
 Valt te lezen als:
 - Wat is de kans dat y = 1 wetende dat x.
 	- vb. Wat is de kans dat het een spam e-mail is (y = 1) wetende dat er deze woorden in staan (x)
@@ -45,6 +47,7 @@ Valt te lezen als:
 ![image](https://github.com/user-attachments/assets/0e6c66e9-a715-4fa7-84c3-b77d54b7dca8)
 
 Wiskundig klopt dit niet -> BCE
+
 We gebruiken de kostfunctie Binary Crossentropy
 ![image](https://github.com/user-attachments/assets/0ef8c649-e1fd-4078-b67b-031c2c3ad1f8)
 
