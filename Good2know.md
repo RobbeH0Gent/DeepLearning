@@ -1,10 +1,15 @@
 # Chapter 10
 
 X = matrix v/d input.
+
 W = weight matrix.
+
 b = bias vector.
+
 $\Phi$ = activation function (phi).
+
 n = # features.
+
 
 hieruit kan je dus afleiden:
 
