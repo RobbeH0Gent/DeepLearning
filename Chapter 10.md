@@ -113,3 +113,13 @@ maar in informatica gebruikt men broadcasting!
 ![image](https://github.com/user-attachments/assets/b08fb904-b6e6-4ce7-a34e-e210d9f60fe3)
 
 Dit lees je als volgt: "de activatiefunctie van perceptron x is gelijk aan de step-functie op (X * W + b)" 
+
+
+## Multilayer perceptron
+
+- de output van de eerste perceptrons is de invoer van de volgende.
+![image](https://github.com/user-attachments/assets/f21f8ac0-8654-4aaa-a24a-2230f1ea498a)
+
+- $W^1$ = $[[1,1], [1,1]]$ (2 input = 2 rijen, 2 outputs = 2 kolommen => 2x2 matrix)
+
+
