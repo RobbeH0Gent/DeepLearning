@@ -70,3 +70,46 @@ Met gevolg wordt de definitie dus:
 - Deep learning heeft typisch veel meer data nodig dan machine learning om goed te werken.
 
  
+## Chapter 10
+- Artificial Neural Network (ANN) is een machine learning model dat gebaseerd is op de biologische neurons in het menselijk brein.
+
+### 10.1.3 The perceptron
+- The perceptron == een laag van TLUs (Threshold Logic Unit) (*afkortingen worden niet op het examen gevraagd*)
+![image](https://github.com/user-attachments/assets/acaab279-822a-4fee-9352-6926403c76cc)
+met:
+* x1 - x3 als input
+* w1 - w3 als gewicht bij de input
+* b als de bias van de berekeningsunit (bolletje op de afbeelding)
+* De TLU berekent 2 dingen:
+	- som (z) (eerste logo in de berekeningsunit)
+ - stap functie ( step(z) ) (tweede logo in de berekeningsunit)
+ - ![image](https://github.com/user-attachments/assets/bbf6bfc4-3765-4cdf-8dd2-f9fd53fd65a4)
+ - Als de invoer negatief is -> antwoord = 0 (uit), anders 1 (!! ook voor antwoord = 0)) (a)
+* a als antwoord
+
+Oefening:
+![image](https://github.com/user-attachments/assets/909dbf21-7007-46ad-a1b7-f5a931800f95)
+
+**dit kunnen we ook makkelijker schrijven als:**
+![image](https://github.com/user-attachments/assets/b66375e4-d902-44fe-a4a5-50d9827eb40c)
+
+hierna passen we step functie toe voor de finale antwoorden:
+![image](https://github.com/user-attachments/assets/646ec1ca-36f3-4ba4-b690-9c61c3b94677)
+
+**of anders geschreven: (met symbool als activatiefunctie)**
+![image](https://github.com/user-attachments/assets/58e4da2f-4a5e-4a09-9644-7a91a5cecf40)
+
+#### Voor de mensen wie hun wiskunde lacking is:
+![image](https://github.com/user-attachments/assets/d2b9aad3-ba92-437e-a65d-0c0f845ab873)
+
+**maar informatica is ook niet altijd wiskunde want:**
+![image](https://github.com/user-attachments/assets/6e69664f-9b31-45cd-bab9-93bc52a42d63)
+
+dit kan niet in de wiskundige wereld...
+maar in informatica gebruikt men broadcasting!
+![image](https://github.com/user-attachments/assets/e568ee12-f436-4a47-baa4-f3f5693ded57)
+
+**Te kennen voor het examen**
+![image](https://github.com/user-attachments/assets/b08fb904-b6e6-4ce7-a34e-e210d9f60fe3)
+
+Dit lees je als volgt: "de activatiefunctie van perceptron x is gelijk aan de step-functie op (X * W + b)" 
