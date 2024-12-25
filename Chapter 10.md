@@ -121,9 +121,12 @@ Dit lees je als volgt: "de activatiefunctie van perceptron x is gelijk aan de st
 ![image](https://github.com/user-attachments/assets/f21f8ac0-8654-4aaa-a24a-2230f1ea498a)
 
 - $W^1$ =
-| 1 | 1 |
-|---|---|
-| 1 | 1 |
- (2 input = 2 rijen, 2 outputs = 2 kolommen => 2x2 matrix)
+\[
+\begin{bmatrix}
+1 & 1 \\
+1 & 1
+\end{bmatrix}
+\]
+(2 input = 2 rijen, 2 outputs = 2 kolommen => 2x2 matrix)
 
 
