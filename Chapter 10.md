@@ -125,4 +125,56 @@ Dit lees je als volgt: "de activatiefunctie van perceptron x is gelijk aan de st
 - $W^2$ = [[-1, 1]]
 - $b^2$ = [[-0.5]] (!broadcasting is toegestaan!)
 
+- rest van deze oefening is het XOR-probleem (ik heb deze op papier, discord: paus_de_14e)
 
+- MLPs are feedforward NN -> signaal gaat maar in 1 directie
+- ![image](https://github.com/user-attachments/assets/fe31b229-7161-49aa-b902-b15ae6b585a3)
+
+### Backpropagation
+- ![image](https://github.com/user-attachments/assets/c9c062d7-f615-4903-ae34-764d52ad5dc8)
+1. Forward pass (batches gaan van input layer -> hidden layer -> next layer -> ... -> last layer)
+2. Backward pass (vanachter weten ze het antwoord, foutmetric wordt berekend) (maakt gebruik van het algoritme: reverse-mode autodiff)
+
+In de volksmond:
+- predictie voor een batch, de error wordt berekend op het einde, achterwaarts door elke laag om de foutcontributie te meten voor de parameters en dan de W en b aanpassen
+
+
+**Alle tussenstappen worden onthouden (zodat je de achterwaartse stap kan doen) -> meer geheugen en verschil met voorspellingen maken**
+ 
+
+### Gradient descent
+aka afgeleide in meerdere dimensies
+- dit willen we gebruiken ipv stap functie omdat de stap functie lokaal altijd hetzelfde blijft
+  
+- activatiefuncties:
+* bv sigmoide (zelfde gedrag als de stapfunctie maar minder bruusk) (!! tussen 0 en 1 !!)
+* ![image](https://github.com/user-attachments/assets/ad514020-5db8-4ec9-967b-0f5c9f5736c1)
+* ![image](https://github.com/user-attachments/assets/7119562a-4826-424a-860e-4d3c974bbe75)
+
+* bv tanh (tangent symbolicus) (!! tussen -1 en 1 !!)
+* ![image](https://github.com/user-attachments/assets/9971e8c5-b637-4399-b4c4-35ba2112d57a)
+* ![image](https://github.com/user-attachments/assets/ed89bd52-de46-4396-a9d9-48dc8ee349f5)
+
+* bv ReLU (rectified linear unit) (!! 0 ander lineair omhoog !!)
+* ![image](https://github.com/user-attachments/assets/da8bae13-dff2-41ee-9e06-57311fe484a0)
+* ![image](https://github.com/user-attachments/assets/65f9396d-6871-4ac4-bba3-47984484a48c)
+
+
+### Regression MLP
+- je wilt geen activatie functie gebruiken voor de output neurons. (want je wilt uitkomsten van - $\infty$ t.e.m. $\infty$
+
+- MSE ( - )² (-> nadeel: ² van grote getallen maakt het nog veel groter... outliers hebben meer invloed) (dalparabool)
+- ![image](https://github.com/user-attachments/assets/5f4bf360-38e8-4400-9c83-04aa93e33c65)
+
+- MAE | - | (-> nadeel: heeft een knik onderaan	(V))
+- ![image](https://github.com/user-attachments/assets/47c78f70-bdf4-41dc-848b-eb69790a26fa)
+
+- Huber loss (combinatie van MAE en MSE)
+- ![image](https://github.com/user-attachments/assets/1c4bb0e0-b043-4bee-986d-8f309c7b7c68)
+
+
+### Classification MLP
+
+
+
+ 
