@@ -43,7 +43,8 @@
  ## Pooling layers
  - werkt ONafhankelijk op elk kanaal
  - heeft geen leerbare parameters
- - max pooling, pool_size=2, stride=2
+ - max pooling, pool_size=2, stride=2 (voordeel: juiste translatie in kleine variantie/schuiving)
+ - ![image](https://github.com/user-attachments/assets/3fc1463f-53f7-434f-a929-c9585484bb83)
    * ![image](https://github.com/user-attachments/assets/92d3f6c7-9b63-4494-a4d7-38772520b66a)
  - average pooling ipv max, het gemiddelde
  - global average pooling
