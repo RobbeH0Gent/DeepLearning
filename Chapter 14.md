@@ -14,7 +14,7 @@
   - valid zijn dan ga je niet uit uw input
   - same zijn dat voeg je extra pixels toe (symmetrisch) (grootte vd output == grootte vd input (als stride = 1))
 * aantal vermenigvuldigen met padding = valid => dimensie - n * dimensie - n * kernel v/d filter
-* trainbare parameters => kernel v/d filter (3x3=9) dus 9 !of je input nu 5x5 of 200x200 is, blijft gelijk
+* trainbare parameters => kernel v/d filter (3x3=9) dus 9 !of je input mu 5x5 of 200x200 is, blijft gelijk
 * kleurenafbeeldingen hebben 3 kanalen -> rood, groen en blauw (examen 2024) => filter wordt een balkje (3 kanalen)
   - aantal vermenigvuldigen zal dan grootte van de kernel x diepte zijn (vb. 3x3x3 = 27 * aantal keer je het doet)
   - extra: bias en activatie functie -> de bias is ook een trainbare parameter dus 27 + 1 = 28
@@ -53,6 +53,73 @@
    * kanalen = feature detector (1024) -> detecteert in welke maten die feature aanwezig is
    * 1 o f2 Fully Connected lagen met op de laatste laag de softmax voor de classificatie
    * ![image](https://github.com/user-attachments/assets/fcc2f096-c968-46fc-bde5-10dda4216762)
+
+
+## Typische CNN architectuur
+
+* Invoer
+* meerdermaal
+  - conv layer
+  - conv layer
+  - pooling
+* eventueel een GAP layer
+* 1 o f 2 Fully Connected layers
+* ![image](https://github.com/user-attachments/assets/1204f089-a571-40b7-8303-1b5cd80ddf16)
+
+* De spatiale dimensie daalt (maw de afbeelding wordt kleiner)
+* Het aantal filters/kanalen stijgt (meerdere features)
+
+### Regularisatie
+* tegen overfitting
+* in het 2e heb je L2- regularisatie gezien
+* ![image](https://github.com/user-attachments/assets/fe482799-5ec4-4dca-ac57-9b48f47d54e5)
+
+* Regularisatie in AlexNet
+  1. Dropout (tijdens trainen: random activaties op 0 zetten) (heeft geen leerbare parameters)
+     - ![image](https://github.com/user-attachments/assets/7f2902bc-437e-475a-8f46-73931f454550)
+     - tijdens testen doet het niets
+
+  2. Data augmentatie (foto lichtjes aanpassen (pixels niet exact hetzelfde))
+     - ![image](https://github.com/user-attachments/assets/402c304d-7b78-4c8a-9d09-804d1351c4c8)
+     - bij het vb van de paddos, is het bv niet muttig dat je die foto op zijn kop zet, want dit komt in de realiteit niet voor.
+    
+  3. Local Response Normalisation (deze wordt vandaag de dag niet meer gebruikt)
+     - ![image](https://github.com/user-attachments/assets/624e555a-8b23-41c8-bec7-19bbeda48721)
+
+
+* ResNet
+  - Residual Connection (skip connection) (makkelijk om van achter naar voor door het netwerk te propageren)
+  - ![image](https://github.com/user-attachments/assets/f1fc4ee8-4fa0-4c38-be09-a5b6070974e2)
+  1. Eerste lagen zorgen ervoor dat de afbeelding veel kleiner wordt (afb / 4)
+  2. Diepe 'stack' residual blocks 
+    - (![image](https://github.com/user-attachments/assets/1a9c8b35-9297-49c5-b03d-c4beb0607b79))
+    - Kan niet met de sequential API
+    - Lukt niet altijd zo gemakkelijk
+    - ![image](https://github.com/user-attachments/assets/6526a159-0014-4ea3-85ae-170ac97cefb5)
+    - Batch Normalisation
+  3. GAP laag
+  4. FC + softmax
+
+### Flashback Normalization vorig jaar + Batch normalization bij training
+- ![image](https://github.com/user-attachments/assets/c1c7edff-1286-4811-9751-812b0f8273e0)
+- ![image](https://github.com/user-attachments/assets/f7324424-9765-406f-9db1-af8764ccdaff)
+- Dit lees je als: voor elke rij wordt het gemiddelde afgetrokken gedeelt door de standaardafwijking
+- ![image](https://github.com/user-attachments/assets/487bdd58-4822-42ae-b3f8-5e67287b25be)
+- met elke standaardafwijking ongeveer 1 en het gemiddelde ongeveer 0
+- ![image](https://github.com/user-attachments/assets/b56739cd-c740-4d2d-ab8d-e62a3a0d825b)
+- het gemiddelde wordt hier dus gamma en de standaardafwijking beta
+
+
+### Batch Norm tijdens 'inference' (testen)
+- Schatting maken wat de mu en sigma kan zijn over alle trainingsvoorbeelden heen
+- ![image](https://github.com/user-attachments/assets/af8e5a7d-fc23-48f8-b463-1e20f8445f14)
+- deze parameters zijn niet-leerbaar **maar wij zullen deze zelf aanpassen**
+- ![image](https://github.com/user-attachments/assets/4902d547-9b1c-4764-8ad9-77bbfd365f84)
+- sigma doen we op dezelfde manier als hierboven
+- ![image](https://github.com/user-attachments/assets/9de39a59-7d36-476b-96e1-4cf4c37c13b4)
+
+
+
 
 
 
