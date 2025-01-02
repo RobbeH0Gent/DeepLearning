@@ -117,6 +117,77 @@
 - ![image](https://github.com/user-attachments/assets/4902d547-9b1c-4764-8ad9-77bbfd365f84)
 - sigma doen we op dezelfde manier als hierboven
 - ![image](https://github.com/user-attachments/assets/9de39a59-7d36-476b-96e1-4cf4c37c13b4)
+- 
+
+
+## Transfer learning
+
+![image](https://github.com/user-attachments/assets/6fc25876-4da8-4881-b246-3d9fb5717c27)
+*optionele fine-tuning stap*
+![image](https://github.com/user-attachments/assets/e08cd81a-1032-496d-aa05-d3ae734303fe)
+![image](https://github.com/user-attachments/assets/b79473f3-8bac-48bc-bd6a-db8abd4bcadc)
+**als je dit vergeet is alles kapot!**
+![image](https://github.com/user-attachments/assets/ad940f61-87e8-44e8-9451-ffccb01d3e97)
+![image](https://github.com/user-attachments/assets/947c2fba-50b2-4220-827b-f2d9eb52d7cc)
+
+
+Data augmentation -> als je niet zo een grote datasets hebt, is dit handig. (foto een beetje veranderen bv)
+
+
+## Classificatie en Localisatie
+
+![image](https://github.com/user-attachments/assets/75788a7e-6ee7-4b89-8fd6-02b4fed107e8)
+we doen dit niet in pixels maar als volgt: 
+![image](https://github.com/user-attachments/assets/593923a6-9212-4298-8dd4-c395aaa73686)
+met bv y = 0.6 en x = 0.5 (de oorsprong begint bij pcs altijd linksbovenaan) 
+zo worden de hoogte en de breedte ook gerelativeerd
+* de classificatie wordt getraind met de X-entropy
+* de Bounding box met de MSE (mean square error -> | - |²)
+* Opmerkingen bij Bounding Box
+![image](https://github.com/user-attachments/assets/d40e2728-9613-458f-bf27-27681bd424ef)
+![image](https://github.com/user-attachments/assets/1b01f7b4-a975-440a-9483-c61d30f0c14f)
+
+-> Intercsection over union:
+![image](https://github.com/user-attachments/assets/1e94b989-cdbf-4a34-9537-97be53ed31a1)
+![image](https://github.com/user-attachments/assets/ccc1eade-37f2-4037-acf9-769197e870c0)
+keras.metrics.MeanIoU
+
+
+## Object detection
+* meerdere objecten in een foto die je wilt classificieren en localiseren
+* dit netwerk heeft 3 outputs
+* ![image](https://github.com/user-attachments/assets/0cbdba4b-db76-483a-9960-5a13eaec0eef)
+* obj score -> lage waarden, negeert de andere outputs, andersom dan kijk je wat er staat en waar.
+* sliding window approach is traag en hetzelfde object wordt meerdere keren gedetecteerd -> oplossing: non-max suppression
+* Non-max suppression
+  - invoer: lijst van BBs (met mogelijks dubbels)
+  - uitvoer: lijst van BBs (hopelijk zonder dubbels)
+  - Stappen:
+    1. Verwijder alle BBs met een 'lage' objectness score. (laag kan je zelf kiezen)
+    2. Selecteer (en verwijder uit de lijst) de BB met de hoogste objectness score. -> verwijder alle BBs met een 'hoge' IoU, met gekozen BB
+    3. Herhaal stap 2 tot de lijst leeg is."
+
+* Fully Convolutional Networks
+  - ![image](https://github.com/user-attachments/assets/57bc1bdc-09ca-43ee-b287-0329e86cce11)
+  - ![image](https://github.com/user-attachments/assets/6628c3e0-8391-4131-8ac6-b78b056d5bc7)
+  - het probleem, dit staat vast: ![image](https://github.com/user-attachments/assets/cbeca284-c071-4fc9-9858-8e12aec8f8fc)
+  - voor conv geldt alleen dat het **minstens** 7x7 moet zijn
+  - ![image](https://github.com/user-attachments/assets/b66efc5d-2eba-4df2-9b9f-b7e6207b3b0e)
+ 
+ * YOLO
+ * Object tracking
+ * Semantic segmentation
+   - ![image](https://github.com/user-attachments/assets/ebe8d8fd-5a82-454b-b32a-b36a5aa06573)
+   - elke pixel in de afbeelding is geclassificeerd tot een klasse (behoort tot een klasse)
+  
+ * Instance segmentation
+   - objecten van dezelfde klassen worden niet gemerged
+
+
+
+
+
+
 
 
 
