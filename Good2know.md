@@ -33,3 +33,19 @@ stel je hebt n = 2, dan geldt als volgt: $\Phi$(b + w1x1 +w2x2)
 * X_train[:, :5]
   - selecteert alle rijen
   - selecteert de eerste 5 kolommen
+
+# Chapter 14
+
+Berekenen van resulterende feature map
+* padding=valid
+  - floor((input - kernel) / stride) + 1
+* padding=same
+  - ceil(input / stride)
+ 
+Bereken het aantal vermenigvuldigingen:
+* padding=valid
+  - floor((input - kernel) / stride) + 1 om uw resulterende feature map te bereken(3x3=9) en dan dat * uw kernel (3x3=9) = 81
+* padding=same
+  - ceil(input / stride) om uw resulterende feature map te bereken(3x3=9) en dan dat * uw kernel (3x3=9) = 81
+ 
+Bij zo een afbeelding is het aantal trainbare parameters (zonder de bias mee te rekenen) geewon de filter dus 3x3 in dit geval.
